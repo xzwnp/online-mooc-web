@@ -1,0 +1,16 @@
+Index: pages/course/index.vue
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/pages/course/index.vue b/pages/course/index.vue
+--- a/pages/course/index.vue	
++++ b/pages/course/index.vue	(date 1648526249509)
+@@ -186,6 +186,7 @@
+       }
+     },
+     changeSelectedSort(sort) {
++      console.log(sort)
+       this.conditions.sort = sort
+     },
+     getCourseList() {

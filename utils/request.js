@@ -2,8 +2,8 @@ import axios from 'axios'
 import cookie from 'js-cookie'
 import { Message, MessageBox } from 'element-ui'
 // 创建axios实例,配置请求的url,同时配置request和response的拦截器
-export const DOMAIN = 'localhost'
-const baseUrl = 'http://' + DOMAIN + ':9001'
+export const DOMAIN = 'demo.ynu.icu'
+export const baseUrl = 'http://' + DOMAIN + ':9001'
 const service = axios.create({
   baseURL: baseUrl, // api的base_url
   timeout: 20000 // 请求超时时间

@@ -45,8 +45,8 @@
               </a>
               <q class='red-point' style='display: none'>&nbsp;</q>
             </li>
-            <li v-if='loginInfo.id' id='is-login-two' class='h-r-user'>
-              <a href='/ucenter' title>
+            <li v-if='loginInfo.id' id='is-login-two' class='h-r-user' @click='showHelp=true'>
+              <a title>
                 <img
                   :src='loginInfo.avatar'
                   width='30'
@@ -90,7 +90,7 @@
           </h4>
           <ul class='of flink-list'>
             <li>
-              <a href='http://www.atguigu.com/' title='尚硅谷' target='_blank'>尚硅谷</a>
+              <a href='http://www.ynu.edu.cn/' title='云南大学' target='_blank'>云南大学</a>
             </li>
           </ul>
           <div class='clear'></div>
@@ -103,11 +103,11 @@
                 <a href='#' title='联系我们' target='_blank'>联系我们</a>|
                 <a href='#' title='帮助中心' target='_blank'>帮助中心</a>|
                 <a href='#' title='资源下载' target='_blank'>资源下载</a>|
-                <span>服务热线：010-56253825(北京) 0755-85293825(深圳)</span>
-                <span>Email：info@atguigu.com</span>
+                <span>服务热线：010-12345678(北京) 0755-12345678(深圳)</span>
+                <span>Email：xiao@ynu.icu</span>
               </section>
               <section class='b-f-link mt10'>
-                <span>©2018课程版权均归谷粒学院所有 京ICP备17055252号</span>
+                <span>©课程版权?没有 </span>
               </section>
             </section>
           </section>
@@ -128,6 +128,17 @@
       </section>
     </footer>
     <!-- /公共底引入 -->
+    <!-- 帮助页面   -->
+    <el-drawer
+      title='帮助中心'
+      :visible.sync='showHelp'
+      direction='ttb'>
+      <ul style='text-align:center;font-size: 20px;font-family: 楷体,serif;color: #666666;line-height: 30px'>
+        <li>点击一门课程,然后在课程大纲处选择一个视频即可开始观看。</li>
+        <li>点击课程资料会自动下载。</li>
+        <li>需要登录才能观看视频和进行评论!</li>
+      </ul>
+    </el-drawer>
   </div>
 </template>
 <script>
@@ -149,7 +160,8 @@ export default {
         mobile: '',
         nickname: '',
         sex: ''
-      }
+      },
+      showHelp: false
     }
   },
   methods: {

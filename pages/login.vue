@@ -74,8 +74,10 @@ export default {
             //把token放入cookie
             cookie.set('myToken', token, { domain: 'localhost' })
             //获取用户信息,并存入cookie
+            console.log('登录成功,开始获取用户信息')
             login.getMemberInfo()
               .then(response => {
+                console.log('获取用户信息成功', response)
                 let userInfo = response.data.data.userInfo
                 //需要转化为string形式再存入cookie
                 userInfo = JSON.stringify(userInfo)

@@ -2,7 +2,8 @@ import axios from 'axios'
 import cookie from 'js-cookie'
 import { Message, MessageBox } from 'element-ui'
 // 创建axios实例,配置请求的url,同时配置request和response的拦截器
-export const baseUrl = 'http://127.0.0.1:9001'
+export const DOMAIN = 'localhost'
+const baseUrl = 'http://' + DOMAIN + ':9001'
 const service = axios.create({
   baseURL: baseUrl, // api的base_url
   timeout: 20000 // 请求超时时间
@@ -14,7 +15,7 @@ service.interceptors.request.use(
   config => {
     //判断token是否存在,如果存在,就随着请求头一起发送
     if (cookie.get('myToken')) {
-      config.headers['token'] = cookie.get('myToken')
+      config.headers['Authorization'] = cookie.get('myToken')
     }
     return config
   },
@@ -31,6 +32,7 @@ service.interceptors.response.use(
         type: 'error',
         duration: 3 * 1000
       })
+      return Promise.reject(response)
     }
     //debugger
     if (response.data.code == 28004) {
